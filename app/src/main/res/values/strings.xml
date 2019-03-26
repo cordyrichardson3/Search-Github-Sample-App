@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">GitHub Best</string>
+    <string name="developed_by">Developed by Cordy Richardson</string>
+
+    <string name="splash_welcome_message">For your consideration</string>
+    <string name="prompt_search">Enter company</string>
+    <string name="prompt_search_long">Enter a company name for\ntop Github Repos</string>
+
+
+    <!-- utility messages -->
+    <string name="loading">Loading&#8230;</string>
+
+    <!-- error messages -->
+    <string name="error_no_connection">Sorry, we are unable to connect</string>
+    <string name="error_generic">Sorry, we are unable to complete your request</string>
+</resources>
