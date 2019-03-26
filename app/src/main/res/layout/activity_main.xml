@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/coordinatorLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true">
+
+    <com.google.android.material.appbar.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:theme="@style/AppTheme.ActionBar">
+
+        <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize">
+
+            <androidx.appcompat.widget.SearchView
+                    android:id="@+id/sv_company"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:queryHint="@string/prompt_search"
+                    android:background="@android:color/transparent"
+                    android:imeOptions="actionSearch"
+                    android:inputType="text"
+                    app:iconifiedByDefault="false"/>
+        </androidx.appcompat.widget.Toolbar>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+            android:layout_marginTop="@dimen/dp_10"
+            android:id="@+id/rv_searchResults"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scrollbars="vertical"/>
+
+    <TextView
+            android:id="@+id/tv_prompt"
+            style="@style/BasicTextView"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="@string/prompt_search_long"/>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

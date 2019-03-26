@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_300"
+        android:layout_margin="@dimen/dp_5"
+        app:cardElevation="@dimen/dp_5"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/iv_logo"
+                android:layout_width="@dimen/dp_100"
+                android:layout_height="@dimen/dp_100"
+                android:layout_marginStart="@dimen/dp_10"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_title"
+                style="@style/TitleTextView"
+                android:layout_width="0dp"
+                tools:text="Material Design"
+                android:textSize="@dimen/text_size_large"
+                android:layout_margin="@dimen/dp_5"
+                android:textAlignment="center"
+                app:layout_constraintTop_toTopOf="@id/iv_logo"
+                app:layout_constraintStart_toEndOf="@id/iv_logo"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_description"
+            style="@style/BasicTextView"
+            android:layout_width="0dp"
+            tools:text="material design repository veru plong stirng and here's more stuff"
+            android:textAlignment="center"
+            android:maxLines="10"
+            android:layout_margin="@dimen/dp_5"
+            app:layout_constraintTop_toBottomOf="@id/tv_title"
+            app:layout_constraintStart_toEndOf="@id/iv_logo"
+            app:layout_constraintEnd_toEndOf="parent"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>
