@@ -12,7 +12,6 @@ interface IMainContract {
 
     }
 
-
     interface Presenter {
         fun getReposByCompany(query: String)
     }

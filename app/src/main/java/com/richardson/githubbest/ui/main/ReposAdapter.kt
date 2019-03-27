@@ -8,8 +8,9 @@ import com.bumptech.glide.Glide
 import com.richardson.githubbest.R
 import com.richardson.githubbest.models.GitHubRepo
 import kotlinx.android.synthetic.main.repo_list_item.view.*
+import javax.inject.Inject
 
-class ReposAdapter(val repoClickListener: RepoClickListener): RecyclerView.Adapter<ReposAdapter.RepoViewHolder>() {
+class ReposAdapter @Inject constructor (private val repoClickListener: RepoClickListener): RecyclerView.Adapter<ReposAdapter.RepoViewHolder>() {
     private var reposArray: Array<GitHubRepo>? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
@@ -38,7 +39,6 @@ class ReposAdapter(val repoClickListener: RepoClickListener): RecyclerView.Adapt
         reposArray = repos
         notifyDataSetChanged()
     }
-
 
     class RepoViewHolder(view: View): RecyclerView.ViewHolder(view){
         val iv_logo = view.iv_logo

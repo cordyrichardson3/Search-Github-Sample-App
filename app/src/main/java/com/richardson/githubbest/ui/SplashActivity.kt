@@ -7,7 +7,7 @@ import com.richardson.githubbest.ui.main.MainActivity
 import org.jetbrains.anko.startActivity
 
 class SplashActivity: BaseActivity() {
-
+    private val SPLASHDELAY = 1800L
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash)
@@ -19,6 +19,6 @@ class SplashActivity: BaseActivity() {
             }
             else
                 showErrorAlert(getString(R.string.error_no_connection), yesCallback = {finish()})
-        }, 2000)
+        }, SPLASHDELAY)
     }
 }

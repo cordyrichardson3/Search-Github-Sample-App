@@ -6,6 +6,8 @@ import android.view.View
 import androidx.appcompat.widget.SearchView
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.richardson.githubbest.R
+import com.richardson.githubbest.dagger.DaggerMainViewsComponent
+import com.richardson.githubbest.dagger.MainViewsModule
 import com.richardson.githubbest.models.GitHubRepo
 import com.richardson.githubbest.ui.BaseActivity
 import com.richardson.githubbest.ui.showErrorAlert
@@ -20,7 +22,12 @@ class MainActivity: BaseActivity(), IMainContract.View, RepoClickListener{
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        val presenter = MainPresenter(this)
+
+        val component = DaggerMainViewsComponent
+            .builder()
+            .mainViewsModule(MainViewsModule(this))
+            .build()
+        val presenter = component.getPresenter()
 
         //set search view
         sv_company.setOnQueryTextListener(object: SearchView.OnQueryTextListener{
@@ -28,19 +35,19 @@ class MainActivity: BaseActivity(), IMainContract.View, RepoClickListener{
                 presenter.getReposByCompany(query.toString())
                 return false
             }
-
             override fun onQueryTextChange(newText: String?): Boolean {return false}
         })
 
         //set search results view
         rv_searchResults.apply{
             layoutManager = LinearLayoutManager(context)
-            adapter = ReposAdapter(this@MainActivity)
+            adapter = component.getReposAdapter()
         }
     }
 
     override fun updateData(repos: Array<GitHubRepo>) {
         tv_prompt.visibility = View.GONE
+        rv_searchResults.visibility = View.VISIBLE
         (rv_searchResults.adapter as ReposAdapter).updateData(repos)
     }
 

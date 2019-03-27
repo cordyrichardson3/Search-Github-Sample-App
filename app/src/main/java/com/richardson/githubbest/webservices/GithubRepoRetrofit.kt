@@ -5,10 +5,12 @@ import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
+import javax.inject.Inject
 
-
-class GithubRepoService() {
+class GithubRepoRetrofit {
     private val BASE_URL = "https://api.github.com"
+
+    @Inject
     fun getRetrofitInstance(): Retrofit{
 
         val httpClient: OkHttpClient = OkHttpClient.Builder()
