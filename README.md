@@ -6,7 +6,7 @@ Android demo application that allows user to enter a company name and view that 
 - Networking: Retrofit2
 - Dependency injection: Dagger2
 
-##Patterns/architectures
+###### Patterns/architectures
 - Model-View-Presenter (MVP) + Repository 
 - ReactiveX with RxKotlin and RxAndroid
 
